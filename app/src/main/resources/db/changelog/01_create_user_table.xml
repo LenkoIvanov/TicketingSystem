@@ -22,4 +22,14 @@ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
                         startValue="1000"
                         incrementBy="1"/>
     </changeSet>
+
+    <changeSet id="add_column_type_user_table" author="livanov">
+        <addColumn tableName="user">
+            <column name="type" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="drop_column_passenger_type_user_table" author="livanov">
+        <dropColumn tableName="user" columnName="passenger_type"/>
+    </changeSet>
 </databaseChangeLog>

@@ -8,7 +8,7 @@ services:
     volumes:
       - ticketing-db:/data/lib
     environment:
-      - POSTGRES_DB=TicketSystemDB
+      - POSTGRES_DB=ticketSystemDB
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=toor
       - POSTGRES_HOST_AUTH_METHOD=trust

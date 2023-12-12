@@ -9,6 +9,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Slf4j
 @Service
 public class TicketService {
@@ -20,11 +22,13 @@ public class TicketService {
         this.ticketMapper = ticketMapper;
     }
 
+    @Transactional
     public Page<TicketDTO> getAll(Pageable pageable) {
         log.debug("Request to get all TICKETS");
         return ticketRepo.findAll(pageable).map(ticketMapper::toDTO);
     }
 
+    @Transactional
     public TicketDTO getOne(Long id) {
         log.debug("Request to get TICKET by ID: {}", id);
         return ticketMapper.toDTO(ticketRepo.findById(id).orElse(null));

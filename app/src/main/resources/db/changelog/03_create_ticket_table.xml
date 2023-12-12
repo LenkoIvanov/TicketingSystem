@@ -5,14 +5,21 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
 
-    <changeSet id="create_table_destination" author="livanov">
-        <createTable tableName="destination">
+    <changeSet id="create_table_ticket" author="livanov">
+        <createTable tableName="ticket">
             <column name="id" type="bigint">
                 <constraints primaryKey="true"/>
             </column>
 
-            <column name="name" type="varchar(255)"/>
+            <column name="user_id" type="bigint"/>
+            <column name="price" type="bigint"/>
         </createTable>
+    </changeSet>
+
+    <changeSet id="add_fk_constraint_user_id_ticket" author="livanov">
+        <addForeignKeyConstraint baseTableName="ticket" baseColumnNames="user_id"
+                                 constraintName="fkc_user_ticket"
+                                 referencedTableName="user" referencedColumnNames="id"/>
     </changeSet>
 
     <changeSet id="destination_sequence_generator" author="livanov">

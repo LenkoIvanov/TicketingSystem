@@ -25,6 +25,13 @@ public class Ticket {
 
     private BigDecimal price;
 
+    private String time;
+
+    private Boolean withChild;
+
+    @Enumerated(value = EnumType.STRING)
+    private TicketStatus status;
+
     @ManyToMany
     @JoinTable(name = "ticket_2_destination",
             joinColumns = @JoinColumn(name = "ticket_id", referencedColumnName = "id"),

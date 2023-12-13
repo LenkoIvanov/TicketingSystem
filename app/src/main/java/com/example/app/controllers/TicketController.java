@@ -1,6 +1,8 @@
 package com.example.app.controllers;
 
+import com.example.app.services.BookingService;
 import com.example.app.services.TicketService;
+import com.example.app.services.dtos.BookingDTO;
 import com.example.app.services.dtos.TicketDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -9,14 +11,18 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
+
 @Slf4j
 @RestController
 @RequestMapping("/api/tickets")
 public class TicketController {
     private final TicketService ticketService;
+    private final BookingService bookingService;
 
-    public TicketController(TicketService ticketService) {
+    public TicketController(TicketService ticketService, BookingService bookingService) {
         this.ticketService = ticketService;
+        this.bookingService = bookingService;
     }
 
     @GetMapping
@@ -48,10 +54,17 @@ public class TicketController {
         return ResponseEntity.status(HttpStatus.OK).body(updatedTicket);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
-        log.debug("REST request to delete TICKET with ID: {}", id);
-        ticketService.delete(id);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    @PutMapping("/cancel/{id}")
+    public ResponseEntity<Void> cancel(@PathVariable Long id) {
+        log.debug("REST request to cancel TICKET with ID: {}", id);
+        ticketService.cancel(id);
+        return ResponseEntity.status(HttpStatus.I_AM_A_TEAPOT).build();
+    }
+
+    @PostMapping("/checkPrice")
+    public ResponseEntity<BigDecimal> getPrice(@RequestBody BookingDTO bookingDTO){
+        return ResponseEntity.status(HttpStatus.OK).body(
+                bookingService.calculatePrice(bookingDTO)
+        );
     }
 }

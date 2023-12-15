@@ -32,7 +32,7 @@ public class Ticket {
     @Enumerated(value = EnumType.STRING)
     private TicketStatus status;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.REMOVE)
     @JoinTable(name = "ticket_2_destination",
             joinColumns = @JoinColumn(name = "ticket_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "destination_id", referencedColumnName = "id"))

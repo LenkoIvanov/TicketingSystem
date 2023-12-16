@@ -49,6 +49,6 @@ public class BookingService {
             }
         }
 
-        return price;
+        return price.setScale(2);
     }
 }

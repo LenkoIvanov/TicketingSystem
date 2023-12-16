@@ -2,7 +2,7 @@ package com.example.app.services;
 
 import com.example.app.entities.Destination;
 import com.example.app.entities.Ticket;
-import com.example.app.entities.TicketStatus;
+import com.example.app.entities.enums.TicketStatus;
 import com.example.app.repos.TicketRepo;
 import com.example.app.services.dtos.BookingDTO;
 import com.example.app.services.dtos.TicketDTO;

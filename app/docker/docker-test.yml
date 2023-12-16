@@ -1,9 +1,9 @@
 version: '3.8'
 services:
 
-  ticketing-db:
+  ticketing-db-test:
     image: postgres:14.1
-    container_name: ticketing-db
+    container_name: ticketing-db-test
     restart: always
     volumes:
       - ticketing-db:/data/lib

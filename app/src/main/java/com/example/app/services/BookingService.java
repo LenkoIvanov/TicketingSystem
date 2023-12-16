@@ -1,6 +1,6 @@
 package com.example.app.services;
 
-import com.example.app.entities.PassengerType;
+import com.example.app.entities.enums.PassengerType;
 import com.example.app.services.dtos.BookingDTO;
 import org.springframework.stereotype.Service;
 

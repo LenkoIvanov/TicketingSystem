@@ -1,6 +1,6 @@
 package com.example.app.web;
 
-import com.example.app.entities.PassengerType;
+import com.example.app.entities.enums.PassengerType;
 import com.example.app.entities.User;
 import com.example.app.repos.UserRepo;
 import com.example.app.services.dtos.UserDTO;

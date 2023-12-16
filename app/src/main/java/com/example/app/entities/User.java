@@ -1,5 +1,6 @@
 package com.example.app.entities;
 
+import com.example.app.entities.enums.PassengerType;
 import lombok.*;
 
 import javax.persistence.*;

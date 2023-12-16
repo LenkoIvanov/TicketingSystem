@@ -1,6 +1,8 @@
 package com.example.app.web;
 
 import com.example.app.entities.*;
+import com.example.app.entities.enums.PassengerType;
+import com.example.app.entities.enums.TicketStatus;
 import com.example.app.repos.DestinationRepo;
 import com.example.app.repos.TicketRepo;
 import com.example.app.repos.UserRepo;
